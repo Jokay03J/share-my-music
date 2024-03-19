@@ -40,14 +40,14 @@ export default function Index() {
                 <Link to={"#pricing"}>Prix</Link>
               </Button>
             </li>
-            <li className="flex justify-center">
-              <Button variant={"ghost"} asChild className="w-11/12 justify-start sm:justify-center sm:w-fit">
-                <Link to={"#pricing"}>Prix</Link>
-              </Button>
-            </li>
-            {user && !loading && (<li className="flex justify-center">
+            {user && !loading ? (<li className="flex justify-center">
               <Button className="w-11/12 sm:w-fit" asChild><Link to={"/dashboard"}>Dashboard</Link></Button>
-            </li>)}
+            </li>) :
+              <li className="flex justify-center">
+                <Button className="w-11/12 sm:w-fit" asChild>
+                  <Link to={"/auth/login"}>Se connecter</Link>
+                </Button>
+              </li>}
           </ul>
         </nav>
       </header>
