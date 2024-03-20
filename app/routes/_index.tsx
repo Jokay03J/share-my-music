@@ -9,20 +9,19 @@ import { MenuIcon } from "lucide-react"
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Share my links" },
+    { name: "description", content: "Share your links with a friendly links" },
   ];
 };
 
 export default function Index() {
   const [user, loading, error] = useAuthState(auth)
   const [menuActive, setMenuActive] = useState(false);
-  const [sendSignInLinkToEmail, sending, errorEmailLink] = useSendSignInLinkToEmail(auth);
 
   return (
     <>
       <header className="p-2 flex items-center justify-between relative">
-        <h1 className="text-xl">Share My Music</h1>
+        <h1 className="text-xl">Share My Links</h1>
         <Button variant={"ghost"} className="sm:hidden" onClick={() => {
           setMenuActive(!menuActive);
         }}>
@@ -41,7 +40,7 @@ export default function Index() {
               </Button>
             </li>
             {user && !loading ? (<li className="flex justify-center">
-              <Button className="w-11/12 sm:w-fit" asChild><Link to={"/dashboard"}>Dashboard</Link></Button>
+              <Button className="w-11/12 sm:w-fit" asChild><Link to={"/dashboard/links"}>Dashboard</Link></Button>
             </li>) :
               <li className="flex justify-center">
                 <Button className="w-11/12 sm:w-fit" asChild>

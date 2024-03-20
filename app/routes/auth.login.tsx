@@ -1,15 +1,13 @@
 "use client"
 
 import { useNavigate } from "@remix-run/react";
-import { isSignInWithEmailLink } from "firebase/auth";
 import { auth } from "~/services/firebase";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "~/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
-import { useSignInUser } from "~/hooks/useSignIn";
 import DashboardNavBar from "~/components/DashboardNavBar";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { AlertCircleIcon, Loader2 } from "lucide-react";
@@ -31,7 +29,7 @@ export default function Login() {
             email: "",
             password: ""
         },
-    })
+    });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         const user = await signInUser(values.email, values.password);

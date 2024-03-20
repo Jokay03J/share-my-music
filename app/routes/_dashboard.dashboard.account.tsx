@@ -12,7 +12,7 @@ import { User, updateProfile } from "firebase/auth";
 import { Toaster } from "~/components/ui/toaster";
 import { useToast } from "~/components/ui/use-toast";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 const formSchema = z.object({
     avatar: z.instanceof(File).optional(),
